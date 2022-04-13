@@ -18,4 +18,12 @@ class Home extends Controller {
 
     }
 
+    public function admin() {
+        
+        $this->view("templates/header");
+        $this->view("Home/admin");
+        $this->view("templates/footer");
+
+    }
+
 }
