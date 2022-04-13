@@ -10,4 +10,12 @@ class Home extends Controller {
 
     }
 
+    public function user() {
+        
+        $this->view("templates/header");
+        $this->view("Home/user");
+        $this->view("templates/footer");
+
+    }
+
 }
