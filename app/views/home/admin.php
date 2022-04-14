@@ -10,7 +10,7 @@
         
         <div class="dropdown">
             <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle fa-1x"></i> Name User
+            <i class="bi bi-person-circle fa-1x"></i> Admin
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="#">Insert</a></li>
@@ -27,8 +27,9 @@
 <section style="padding-top: 70px;">
     <div class="container mt-5">
         <div class="box">
-            <h3 style="color: white;" class="text-center pt-5">Tulisan</h3>
-            <form class="d-flex justify-content-center" style="margin-top: 160px;">
+            <br>
+            <h3 style="color: white; padding-top: 100px;" class="text-center">Cari data yang kamu butuhkan disini</h3>
+            <form class="d-flex justify-content-center" style="margin-top: 100px;">
                 <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search" style="width: 300px;">
                 <button class="btn btn-success" type="submit">Search</button>
             </form>
@@ -41,7 +42,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-3 rmf">
-                <h2 class="mt-5">List</h2>
+                <h2 class="mt-5">Kategori</h2>
                 <hr width="77px">
 
                 <div class="row">
@@ -60,7 +61,7 @@
                 
             </div>
             <div class="col-md-9">
-                <h2 class="mt-5">Content</h2>
+                <h2 class="mt-5">Konten</h2>
                 <hr width="120px">
 
                 <div class="row">

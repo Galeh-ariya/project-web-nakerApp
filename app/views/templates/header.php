@@ -17,6 +17,8 @@
     <!-- my css -->
     <link rel="stylesheet" href="<?= BASEURL ?>/css/style.css">
 
-    <title>Hello, world!</title>
+    <title><?= $data['page']; ?></title>
   </head>
   <body>
+
+  

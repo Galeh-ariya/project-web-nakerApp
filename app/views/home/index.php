@@ -2,31 +2,44 @@
   <div class="container">
     <a class="navbar-brand" href="#">NaKer</a>
       <div class="navbar-nav">
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-        <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-user-circle fa-xl"></i></a>
-
+        
+        <div class="dropdown">
+            <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle fa-2x"></i>
+            </p>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li><a class="dropdown-item" href="#">Register</a></li>
+            </ul>
+        </div>
       </div>
   </div>
 </nav>
 
 
+
+
 <section style="padding-top: 70px;">
-    <div class="container">
+    <div class="container mt-5">
         <div class="box">
-            <h3 style="color: white;" class="text-center">Tulisan</h3>
+            <br>
+            <h3 style="color: white; padding-top: 100px;" class="text-center">Cari data yang kamu butuhkan disini</h3>
+            <form class="d-flex justify-content-center" style="margin-top: 100px;">
+                <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search" style="width: 300px;">
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
         </div>
     </div>
 </section>
+
+
 
 
 <section>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-3 rmf">
-                <h2 class="mt-5">List</h2>
+                <h2 class="mt-5">Kategori</h2>
                 <hr width="77px">
 
                 <div class="row">
@@ -34,9 +47,9 @@
                     <div class="card" style="width: 18rem; width: 90%" >
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item">
-                            An item <span class="badge bg-secondary text-right">4</span></li>
-                            <li class="list-group-item">A second item <span class="badge bg-secondary text-right">4</span></li>
-                            <li class="list-group-item">A third item <span class="badge bg-secondary text-right">4</span></li>
+                            Hukum <span class="badge bg-secondary text-right">4</span></li>
+                            <li class="list-group-item">Budaya <span class="badge bg-secondary text-right">4</span></li>
+                            <li class="list-group-item">Peraturan<span class="badge bg-secondary text-right">4</span></li>
                         </ul>
                         </div>
                     </div>

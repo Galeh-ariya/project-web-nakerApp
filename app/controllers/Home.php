@@ -4,7 +4,9 @@ class Home extends Controller {
 
     public function index() {
         
-        $this->view("templates/header");
+        $data['judul'] = "Home | Naker";
+
+        $this->view("templates/header", $data);
         $this->view("Home/index");
         $this->view("templates/footer");
 
@@ -12,15 +14,20 @@ class Home extends Controller {
 
     public function user() {
         
-        $this->view("templates/header");
-        $this->view("Home/user");
+        $data['page'] = "Home | Naker";
+        $data['content'] = $this->model('Content_model')->getAll();
+
+        $this->view("templates/header", $data);
+        $this->view("Home/user", $data);
         $this->view("templates/footer");
 
     }
 
     public function admin() {
         
-        $this->view("templates/header");
+        $data['judul'] = "Home | Naker";
+
+        $this->view("templates/header", $data);
         $this->view("Home/admin");
         $this->view("templates/footer");
 
