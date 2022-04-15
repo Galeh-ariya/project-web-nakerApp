@@ -4,7 +4,7 @@ class Auth extends Controller {
 
     public function index() {
 
-        $data['page'] = "Home | Naker";
+        $data['page'] = "Login | Naker";
 
         if(!isset($_POST['submit'])) {
             $this->view("templates/header", $data);
@@ -19,8 +19,8 @@ class Auth extends Controller {
     private function _login() {
 
         $data = [
-            "email" => $_POST['email'],
-            "password" => $_POST['password']
+            "email" => htmlspecialchars($_POST['email']),
+            "password" => htmlspecialchars($_POST['password'])
         ];
 
         $this->model('User_model')->cekLogin($data);
@@ -30,7 +30,7 @@ class Auth extends Controller {
 
     public function register() {
 
-        $data['page'] = "Home | Naker";
+        $data['page'] = "Register | Naker";
 
         if(isset($_POST['submit'])) {
             $this->tambah();
@@ -62,6 +62,7 @@ class Auth extends Controller {
 
     public function logOut() {
         session_destroy();
+        session_unset();
         header('Location: ' . BASEURL . 'home');
     }
 

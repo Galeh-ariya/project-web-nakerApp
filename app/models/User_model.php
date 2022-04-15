@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 
 class User_model {
     private $db;
@@ -10,20 +10,32 @@ class User_model {
 
     public function addUser($data) {
 
-        $name = $data['name'];
-        $email = $data['email'];
-        $password = $data['password'];
-        $konfir = $data['passwordC'];
+        $name = htmlspecialchars($data['name']);
+        $email = htmlspecialchars($data['email']);
+        $password = htmlspecialchars($data['password']);
+        $konfir = htmlspecialchars($data['passwordC']);
         $role = '2';
         $active = '1';
 
+        $verifyEmail = $this->cekEmail($email);
+
+        if($verifyEmail != null) {
+            echo "<script>
+            alert('Email sudah terdaftar');
+            </script>";
+            return 0;
+        }
 
         if($password != $konfir) {
             echo "<script>
             alert('Password tidak sama');
             </script>";
             return 0;
-        } else {
+        }  else {
+
+            $password = password_hash($password, PASSWORD_DEFAULT);
+            // var_dump($password); die;
+
             $sql = "INSERT INTO users (name, email, password, role_id, is_active) VALUES ('$name', '$email', '$password', $role, $active)";
 
             $this->db->query($sql);
@@ -35,6 +47,17 @@ class User_model {
 
     }
 
+    private function cekEmail($email) {
+
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $this->db->query($sql);
+        $user = $this->db->resultSet();
+
+        // var_dump($user); die;
+        return $user;
+
+    }
+
     public function cekLogin($data) {
 
         $email = $data['email'];
@@ -43,7 +66,7 @@ class User_model {
         $sql = "SELECT * FROM users WHERE email = '$email'"; 
 
          $this->db->query($sql);
-         $user = $this->db->resultSet();
+         $user = $this->db->resultSet()[0];
 
         //  var_dump($user);
         //  die;
@@ -51,19 +74,27 @@ class User_model {
          if($user) {
              
             //cek aktiv
-            if($user[0]['is_active'] == 1) {
+            if($user['is_active'] == 1) {
 
                 // cek password
-                if($pass == $user[0]['password']) {
+
+                if(password_verify($pass, $user['password']) ) {
                     //berhasil
 
                     $file = [
-                        "email" => $user[0]['email'],
-                        "role_id" => $user[0]['role_id']
+                        "email" => $user['email'],
+                        "role_id" => $user['role_id']
                     ];
 
                     $_SESSION['data'] = $file;
-                    header('Location: ' . BASEURL . 'home/user');
+
+                    if($user['role_id'] == 1) {
+                        header('Location: ' . BASEURL . 'admin');
+                    } else {
+                        header('Location: ' . BASEURL . 'user');
+                    }
+
+                    
 
                 } else {
                     echo "<script>
@@ -85,6 +116,22 @@ class User_model {
             document.location.href = 'auth';
             </script>";
          }
+
+
+    }
+
+
+    // view user
+    public function viewUser($data) {
+
+        $email = $data['data']['email'];
+
+        $sql = "SELECT * FROM users WHERE email = '$email'"; 
+
+        $this->db->query($sql);
+        $user = $this->db->resultSet();
+
+        return $user;
 
 
     }

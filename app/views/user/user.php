@@ -5,16 +5,14 @@
     <a class="navbar-brand" href="#">NaKer</a>
       <div class="navbar-nav">
 
-        <a class="nav-link mx-4" aria-current="page" href="#"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger">4</span>
-        </a> 
         
         <div class="dropdown">
             <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle fa-1x"></i> Name User
+            <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
             </ul>
         </div>
       </div>
