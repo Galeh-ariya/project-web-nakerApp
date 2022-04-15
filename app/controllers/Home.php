@@ -1,10 +1,10 @@
-<?php 
+<?php session_start();
 
 class Home extends Controller {
 
     public function index() {
         
-        $data['judul'] = "Home | Naker";
+        $data['page'] = "Home | Naker";
 
         $this->view("templates/header", $data);
         $this->view("Home/index");
@@ -17,9 +17,13 @@ class Home extends Controller {
         $data['page'] = "Home | Naker";
         $data['content'] = $this->model('Content_model')->getAll();
 
+        var_dump($_SESSION); die;
+
         $this->view("templates/header", $data);
         $this->view("Home/user", $data);
         $this->view("templates/footer");
+
+        
 
     }
 
