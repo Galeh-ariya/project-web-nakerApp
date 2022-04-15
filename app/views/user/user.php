@@ -1,6 +1,6 @@
 
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
     <a class="navbar-brand" href="#">NaKer</a>
       <div class="navbar-nav">
@@ -11,7 +11,7 @@
             <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>profile">Profile</a></li>
                 <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
             </ul>
         </div>
@@ -104,7 +104,7 @@
 
 
 <div class="ftr mt-5">
-    <div class="back text-center">
+    <div class="back fixed text-center">
         <a href="#"><i class="fas fa-chevron-up fa-xl" style="color: white;"></i></a>
     </div>
     <div class="container ">

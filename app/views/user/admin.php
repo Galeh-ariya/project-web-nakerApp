@@ -1,6 +1,6 @@
 
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
     <a class="navbar-brand" href="#">NaKer</a>
       <div class="navbar-nav">
@@ -10,10 +10,11 @@
         
         <div class="dropdown">
             <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle fa-1x"></i> Admin
+            <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Insert</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>profile/admin">Profile</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Crud_Admin">Tambah data</a></li>
                 <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut">Logout</a></li>
             </ul>
         </div>
@@ -47,96 +48,39 @@
 
                 <div class="row">
                     <div class="col">
-                    <div class="card" style="width: 18rem; width: 90%" >
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                            An item <span class="badge bg-secondary text-right">4</span></li>
-                            <li class="list-group-item">A second item <span class="badge bg-secondary text-right">4</span></li>
-                            <li class="list-group-item">A third item <span class="badge bg-secondary text-right">4</span></li>
-                        </ul>
+                        <div class="card" style="width: 18rem; width: 90%" >
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                An item <span class="badge bg-secondary text-right">4</span></li>
+                                <li class="list-group-item">A second item <span class="badge bg-secondary text-right">4</span></li>
+                                <li class="list-group-item">A third item <span class="badge bg-secondary text-right">4</span></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-
-                
             </div>
+
             <div class="col-md-9">
-                <h2 class="mt-5">Konten</h2>
+                <h2 class="mt-5">Peraturan</h2>
                 <hr width="120px">
 
                 <div class="row">
+                    <?php foreach($data['contents'] as $d) : ?>
                     <div class="col-md-4 mt-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. <a href="#">More</a></p>
+                                <h5 class="card-title"><?= $d['peraturan']; ?></h5>
+                                <h6 class="card-subtitle mb-2 text-muted"><?= $d['time_create']; ?></h6>
+                                <p class="card-text"><?= $d['tentang']; ?> <a href="#">More</a></p>
                                 <a href="#" class="btn btn-warning">ubah</a>
                                 <a href="#" class="btn btn-danger">hapus</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. <a href="#">More</a></p>
-                                <a href="#" class="btn btn-warning">ubah</a>
-                                <a href="#" class="btn btn-danger">hapus</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. <a href="#">More</a></p>
-                                <a href="#" class="btn btn-warning">ubah</a>
-                                <a href="#" class="btn btn-danger">hapus</a>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php endforeach; ?>
                 </div>
-
-                <div class="row mt-2 justify-content-center">
-                    <div class="col-md-4 mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. <a href="#">More</a></p>
-                                <a href="#" class="btn btn-warning">ubah</a>
-                                <a href="#" class="btn btn-danger">hapus</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. <a href="#">More</a></p>
-                                <a href="#" class="btn btn-warning">ubah</a>
-                                <a href="#" class="btn btn-danger">hapus</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mt-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content. <a href="#">More</a></p>
-                                <a href="#" class="btn btn-warning">ubah</a>
-                                <a href="#" class="btn btn-danger">hapus</a>
-                            </div>
-                        </div>
-                    </div>
             </div>
-        </div>
+
         <nav aria-label="Page navigation example" class="mt-5">
             <ul class="pagination justify-content-end">
                 <li class="page-item disabled">

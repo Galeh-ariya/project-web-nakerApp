@@ -1,5 +1,5 @@
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
     <a class="navbar-brand" href="#">NaKer</a>
       <div class="navbar-nav">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" id="password" placeholder="masukkan Passorwd">
+                        <input type="password" name="password" class="form-control" id="password" placeholder="masukkan Password">
                     </div>
                     <div class="mb-3">
                         <label for="passwordC" class="form-label">Konfirmasi password</label>

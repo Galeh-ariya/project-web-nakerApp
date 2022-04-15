@@ -6,7 +6,7 @@ class User extends COntroller {
     public function index() {
         
         $data['page'] = "Home | Naker";
-        $data['content'] = $this->model('Content_model')->getAll();
+        $data['content'] = $this->model('Content_model')->getAll(); 
         // var_dump($data['content']); die;
         
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
@@ -19,12 +19,5 @@ class User extends COntroller {
     
     
     }
-
-    // public function logout() {
-    //     session_destroy();
-    //     session_unset();
-    //     header('Location: ' . BASEURL . 'home');
-        
-    // }
 
 }
