@@ -14,6 +14,6 @@ class Content_model {
         $this->db->query("SELECT * FROM contents");
         return $this->db->resultSet();
  
-     }
+    }
 
 }

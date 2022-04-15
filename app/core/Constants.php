@@ -1,3 +1,3 @@
 <?php 
 
-define("BASEURL", "http://localhost/project-naker/public/");
+define("BASEURL", "http://localhost/project-web-nakerapp/public/");

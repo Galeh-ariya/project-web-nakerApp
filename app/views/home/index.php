@@ -8,7 +8,7 @@
             <i class="bi bi-person-circle fa-2x"></i>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Login</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL; ?>auth/login.php">Login</a></li>
                 <li><a class="dropdown-item" href="#">Register</a></li>
             </ul>
         </div>
