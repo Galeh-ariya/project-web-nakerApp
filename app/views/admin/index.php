@@ -14,7 +14,7 @@
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="<?= BASEURL ?>profile/admin">Profile</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>Crud_Admin">Tambah data</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Admin/insert">Tambah data</a></li>
                 <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut">Logout</a></li>
             </ul>
         </div>
@@ -30,13 +30,21 @@
         <div class="box">
             <br>
             <h3 style="color: white; padding-top: 100px;" class="text-center">Cari data yang kamu butuhkan disini</h3>
-            <form class="d-flex justify-content-center" style="margin-top: 100px;">
-                <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search" style="width: 300px;">
-                <button class="btn btn-success" type="submit">Search</button>
+            <form action="<?= BASEURL ?>admin/cari/#here" method="POST" class="d-flex justify-content-center" style="margin-top: 100px;">
+                <input class="form-control me-1" type="search" name="keyword" placeholder="Search" aria-label="Search" style="width: 300px;" autocomplete="off">
+                <button id="here" class="btn btn-success" type="submit" name="submit">Search</button>
             </form>
         </div>
     </div>
 </section>
+
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-10 offset-md-1">
+        <?php Flashalert::flash(); ?>
+        </div>
+    </div>
+</div>
 
 
 <section>
@@ -69,11 +77,15 @@
                     <div class="col-md-4 mt-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $d['peraturan']; ?></h5>
+                                <a href="<?= BASEURL ?>Content/admin/<?= $d['id']; ?>" style="color: black;"><h5 class="card-title"><?= $d['peraturan']; ?></h5></a>
+
                                 <h6 class="card-subtitle mb-2 text-muted"><?= $d['time_create']; ?></h6>
-                                <p class="card-text"><?= $d['tentang']; ?> <a href="#">More</a></p>
-                                <a href="#" class="btn btn-warning">ubah</a>
-                                <a href="#" class="btn btn-danger">hapus</a>
+
+                                <p class="card-text"><?= $d['tentang']; ?> <a href="<?= BASEURL ?>Content/admin/<?= $d['id']; ?>" style="text-decoration: none;">More...</a></p>
+
+                                <a href="<?= BASEURL ?>admin/edit/<?= $d['id']; ?>" class="btn btn-warning">ubah</a>
+
+                                <a href="<?= BASEURL ?>admin/hapus/<?= $d['id']; ?>" class="btn btn-danger" onclick="return confirm('apakah anda yakin ingin menghapus?')">hapus</a>
                             </div>
                         </div>
                     </div>

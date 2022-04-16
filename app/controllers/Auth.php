@@ -46,14 +46,11 @@ class Auth extends Controller {
     public function tambah() {
         
       if($this->model('User_model')->addUser($_POST) > 0) {
-          echo "<script>
-          alert('Register berhasil');
-          document.location.href = 'auth';
-          </script>";
+          Flashalert::setFlash('Berhasil melakukan', 'registrasi', 'success');
+          header('Location: ' . BASEURL . 'auth');
       }  else {
-            echo "<script>
-            alert('Register gagal');
-            </script>";
+        Flashalert::setFlash('Gagal melakukan', 'registrasi', 'danger');
+        header('Location: ' . BASEURL . 'auth');
             
 
       }

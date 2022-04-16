@@ -26,6 +26,7 @@
         <div class="row mb-3">
             <div class="col-md-12">
                 <h3>Registrasi</h3>
+                
             </div>
         </div>
 

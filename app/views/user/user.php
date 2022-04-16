@@ -27,9 +27,9 @@
         <div class="box">
             <br>
             <h3 style="color: white; padding-top: 100px;" class="text-center">Cari data yang kamu butuhkan disini</h3>
-            <form class="d-flex justify-content-center" style="margin-top: 100px;">
-                <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search" style="width: 300px;">
-                <button class="btn btn-success" type="submit">Search</button>
+            <form action="<?= BASEURL ?>user/cari/#here" method="POST" class="d-flex justify-content-center" style="margin-top: 100px;">
+                <input class="form-control me-1" type="search" name="keyword" placeholder="Search" aria-label="Search" style="width: 300px;" autocomplete="off">
+                <button id="here" class="btn btn-success" type="submit" name="submit">Search</button>
             </form>
         </div>
     </div>
@@ -71,13 +71,13 @@
                 <hr width="120px">
 
                 <div class="row">
-                    <?php foreach($data['content'] as $val) : ?>
+                    <?php foreach($data['all'] as $val) : ?>
                     <div class="col-md-4 mt-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"><a href="#" style="color: black;"><?= $val['judul']; ?></a></h5>
-                                <h6 class="card-subtitle mb-2 text-muted">hukum</h6>
-                                <p class="card-text">Tenaga kerja adalah setiap orang yang mampu melakukan pekerjaan guna menghasilkan barang dan/atau jasa baik untuk memenuhi kebutuhan sendiri maupun untuk masyarakat <a href="#" style="text-decoration: none;">More...</a></p>
+                                <h5 class="card-title"><a href="#" style="color: black;"><?= $val['peraturan']; ?></a></h5>
+                                <h6 class="card-subtitle mb-2 text-muted"><?= $val['time_create']; ?></h6>
+                                <p class="card-text"><?= $val['tentang']; ?> <a href="<?= BASEURL ?>Content/index/<?= $val['id']; ?>" style="text-decoration: none;">tampilkan lebih banyak...</a></p>
                             </div>
                         </div>
                     </div>

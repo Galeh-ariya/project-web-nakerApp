@@ -52,7 +52,7 @@ class Database {
 
         }
 
-        $this->sql->binValue($param, $value, $type);
+        $this->sql->bindValue($param, $value, $type);
 
     }
 

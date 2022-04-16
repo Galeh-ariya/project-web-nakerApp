@@ -133,10 +133,6 @@ class User_model {
 
         return $user;
 
-
     }
-
-
-
 
 }
