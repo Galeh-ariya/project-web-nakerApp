@@ -41,14 +41,32 @@
         </div>
 
         <div class="col-md-6 justify-content-center offset-md-1">
+            <form action="" method="POST" class="mb-3">
 
-            <label for="nama" class="form-label">Nama:</label>
-            <input class="form-control" type="text" aria-label="Disabled input example" disabled id="nama" value="<?= $data['user']['name']; ?>">
-            
-            <label for="email" class="form-label mt-4">Email:</label>
-            <input class="form-control" type="text" aria-label="Disabled input example" disabled id="email" value="<?= $data['user']['email']; ?>">
-            
+                <label for="nama" class="form-label">Nama:</label>
+                <input class="form-control" type="text" name="nama" aria-label="Disabled input example" disabled id="nama" value="<?= $data['user']['name']; ?>">
+                
+                <label for="email" class="form-label mt-4">Email:</label>
+                <input class="form-control" type="text" name="email" aria-label="Disabled input example" disabled id="email" value="<?= $data['user']['email']; ?>">
+                
+                <select class="form-select mt-5" aria-label="Default select example" name="gender">
+                    <option selected>Jenis Kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                    <option value="Other">other</option>
+                </select>
+                
+                <label for="telp" class="form-label mt-4">No Telp:</label>
+                <input class="form-control" type="text" name="telp" id="telp" required>
+                
+                <div class="mb-3 mt-3">
+                    <label for="alamat" class="form-label">Alamat:</label>
+                    <textarea class="form-control" name="alamat" id="alamat" rows="4" required></textarea>
+                </div>
 
+            <button type="submit" name="submit" class="btn btn-warning">Ubah</button>
+
+            </form>
         </div>
     </div>
 </div>

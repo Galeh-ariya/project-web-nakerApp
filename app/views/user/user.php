@@ -67,7 +67,7 @@
             </div>
 
             <div class="col-md-9">
-                <h2 class="mt-5">Content</h2>
+                <h2 class="mt-5">Peraturan</h2>
                 <hr width="120px">
 
                 <div class="row">
@@ -75,7 +75,7 @@
                     <div class="col-md-4 mt-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"><a href="#" style="color: black;"><?= $val['peraturan']; ?></a></h5>
+                                <h5 class="card-title"><a href="<?= BASEURL ?>Content/index/<?= $val['id']; ?>" style="color: black;"><?= $val['peraturan']; ?></a></h5>
                                 <h6 class="card-subtitle mb-2 text-muted"><?= $val['time_create']; ?></h6>
                                 <p class="card-text"><?= $val['tentang']; ?> <a href="<?= BASEURL ?>Content/index/<?= $val['id']; ?>" style="text-decoration: none;">tampilkan lebih banyak...</a></p>
                             </div>
