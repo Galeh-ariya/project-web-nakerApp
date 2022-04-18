@@ -97,5 +97,22 @@ class Admin extends Controller {
 
     }
 
+    public function ubahPassword() {
+
+
+        $data['page'] = "Ubah Password | Naker";
+        $data['contents'] = $this->model('Content_model')->getAll();
+        // var_dump($data['all']); die;
+        
+        $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+        // var_dump($data['user']); die;
+    
+    
+        $this->view("templates/header", $data);
+        $this->view("admin/pass", $data);
+        $this->view("templates/footer");
+        
+    }
+
 }
 

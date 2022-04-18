@@ -33,7 +33,7 @@
         
         <div class="col-md-2">
             <div class="btn1 mb-4">
-                <a href=""><button class="btn btn-primary">Ajukan pertanyaan</button></a>
+                <a href="<?= BASEURL ?>Qa"><button class="btn btn-primary">Ajukan pertanyaan</button></a>
             </div>
             <div class="btn2">
                 <a href="<?= BASEURL ?>user/index/#here"><button class="btn btn-danger">Kembali</button></a>

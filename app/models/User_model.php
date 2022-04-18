@@ -135,4 +135,74 @@ class User_model {
 
     }
 
+    public function setProfile($data) {
+
+        $id = $data['id'];
+        $gender = $data['gender'];
+        $telp = $data['telp'];
+        $alamat = $data['alamat'];
+
+        $sql = "UPDATE users
+         SET gender = '$gender',
+         telp = $telp,
+         alamat = '$alamat' WHERE id = $id";
+
+         $this->db->query($sql);
+
+         $this->db->execute();
+
+         return $this->db->rowCount();
+
+    }
+
+    public function setPass($data) {
+
+        $id = htmlspecialchars($data['id']);
+        $pwl = htmlspecialchars($data['passwordlama']);
+        $pwn = htmlspecialchars($data['passwordbaru']);
+        $pwc = htmlspecialchars($data['passwordC']);
+
+        if($this->checkPwLama($id, $pwl)) {
+
+            if($pwn == $pwc) {
+
+                $pwn = password_hash($pwn, PASSWORD_DEFAULT);
+
+                $sql = "UPDATE users SET password = '$pwn' WHERE id = $id";
+
+                $this->db->query($sql);
+                $this->db->execute();
+
+                return $this->db->rowCount();
+
+            } else {
+                return 0;
+            }
+            
+        } else {
+            return 0;
+        }
+
+
+    }
+
+    private function checkPwLama($id, $pwl) {
+
+        // var_dump($pwl); die;
+
+        $sql = "SELECT password FROM users WHERE id = $id";
+
+        $this->db->query($sql);
+        // var_dump($this->db->single()); die;
+        $pass = $this->db->single();
+        // var_dump($pass); die;
+
+        if(password_verify($pwl, $pass['password'])) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 }

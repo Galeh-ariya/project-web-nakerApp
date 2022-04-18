@@ -2,7 +2,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="#">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>user">NaKer</a>
       <div class="navbar-nav">
 
         
@@ -28,7 +28,7 @@
             <br>
             <h3 style="color: white; padding-top: 100px;" class="text-center">Cari data yang kamu butuhkan disini</h3>
             <form action="<?= BASEURL ?>user/cari/#here" method="POST" class="d-flex justify-content-center" style="margin-top: 100px;">
-                <input class="form-control me-1" type="search" name="keyword" placeholder="Search" aria-label="Search" style="width: 300px;" autocomplete="off">
+                <input class="form-control me-1" type="search" name="keyword" placeholder="Search" aria-label="Search" style="width: 300px;" autocomplete="off" autofocus>
                 <button id="here" class="btn btn-success" type="submit" name="submit">Search</button>
             </form>
         </div>
@@ -46,13 +46,16 @@
                 <div class="row">
                     <div class="col">
                     <div class="card" style="width: 18rem; width: 90%" >
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
-                            Tanya <span class="badge bg-secondary text-right">4</span></li>
-                            <li class="list-group-item">Jawaban<span class="badge bg-secondary text-right">4</span></li>
+                        <ul class="list-group list-group-flush ">
+
+                            <a href="<?= BASEURL ?>qa" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">
+                            Ajukan Pertanyaan</li></a>
+
+                            <a href="#" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">Jawaban<span class="badge bg-danger rounded-pill">!</span></li></a>
+
                             <div class="dropdown">
                                 <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Kategori
+                                Tahun
                                 </p>
                                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                     <li><a class="dropdown-item" href="#">Hukum</a></li>

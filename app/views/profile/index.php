@@ -19,7 +19,14 @@
 </nav>
 
 <div class="container" style="margin-top: 100px;">
-    <h3>Profil Pengguna</h3>
+    <h3 class="mb-3">Profil Pengguna</h3>
+    
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+        <?php Flashalert::flash(); ?>
+        </div>
+    </div>
+
     <div class="row mt-5">
         <div class="col-md-4">
             <div class="row" style="background-color: #F2F2F2; padding-left: 30px; padding-top: 30px; padding-bottom: 30px;">
@@ -28,7 +35,7 @@
                 </div>
 
                 <div class="col-md-11 mt-4">
-                    <a href="#" style="text-decoration: none;">ubah password</a>
+                    <a href="<?= BASEURL ?>User/ubahPassword" style="text-decoration: none;">ubah password</a>
                 </div>
 
                 <div class="col-md-11 mt-4">
@@ -36,12 +43,10 @@
                 </div>
             </div>
             
-            
-            
         </div>
 
         <div class="col-md-6 justify-content-center offset-md-1">
-            <form action="" method="POST" class="mb-3">
+            <form action="<?= BASEURL ?>Profile/update" method="POST" class="mb-3">
 
                 <label for="nama" class="form-label">Nama:</label>
                 <input class="form-control" type="text" name="nama" aria-label="Disabled input example" disabled id="nama" value="<?= $data['user']['name']; ?>">
@@ -50,18 +55,18 @@
                 <input class="form-control" type="text" name="email" aria-label="Disabled input example" disabled id="email" value="<?= $data['user']['email']; ?>">
                 
                 <select class="form-select mt-5" aria-label="Default select example" name="gender">
-                    <option selected>Jenis Kelamin</option>
+                    <option selected><?= ($data['user']['gender'] == null) ? "-" : $data['user']['gender']; ?></option>
                     <option value="Laki-laki">Laki-laki</option>
                     <option value="Perempuan">Perempuan</option>
                     <option value="Other">other</option>
                 </select>
                 
                 <label for="telp" class="form-label mt-4">No Telp:</label>
-                <input class="form-control" type="text" name="telp" id="telp" required>
+                <input class="form-control" type="number" name="telp" id="telp" required autocomplete="off" value="<?= ($data['user']['telp'] == null) ? 0 : $data['user']['telp']; ?>">
                 
                 <div class="mb-3 mt-3">
                     <label for="alamat" class="form-label">Alamat:</label>
-                    <textarea class="form-control" name="alamat" id="alamat" rows="4" required></textarea>
+                    <textarea class="form-control" name="alamat" id="alamat" rows="4" required><?= ($data['user']['alamat'] == null) ? " " : $data['user']['alamat']; ?></textarea>
                 </div>
 
             <button type="submit" name="submit" class="btn btn-warning">Ubah</button>
