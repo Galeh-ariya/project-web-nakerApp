@@ -47,15 +47,39 @@ class Profile extends Controller {
 
         if($this->model('User_model')->setProfile($fileUser) > 0) {
             Flashalert::setFlash('Berhasil melakukan', 'ubah data', 'success');
+            header('Location: ' . BASEURL . 'profile');
+        } else {
+            Flashalert::setFlash('Gagal melakukan', 'ubah data', 'success');
+            header('Location: ' . BASEURL . 'profile');
+        }
+
+    }
+
+    public function updateAdmin() {
+
+        $data['page'] = 'Profile | Naker';
+
+        $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+
+        // var_dump($_POST); die;
+        $fileUser = [
+
+            "id" => $data['user']['id'],
+            "gender" => htmlspecialchars($_POST['gender']),
+            "telp" => htmlspecialchars($_POST['telp']),
+            "alamat" => htmlspecialchars($_POST['alamat'])
+
+        ];
+
+        // var_dump($fileUser); die;
+
+        if($this->model('User_model')->setProfile($fileUser) > 0) {
+            Flashalert::setFlash('Berhasil melakukan', 'ubah data', 'success');
             header('Location: ' . BASEURL . 'profile/admin');
         } else {
             Flashalert::setFlash('Gagal melakukan', 'ubah data', 'success');
             header('Location: ' . BASEURL . 'profile/admin');
         }
-
-        // $this->view("templates/header", $data);
-        // $this->view("Profile/index", $data);
-        // $this->view("templates/footer");
 
     }
 

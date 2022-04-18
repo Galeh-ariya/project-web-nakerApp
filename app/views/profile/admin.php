@@ -52,7 +52,7 @@
 
         <div class="col-md-6 justify-content-center offset-md-1">
 
-        <form action="<?= BASEURL ?>Profile/update" method="POST" class="mb-3">
+        <form action="<?= BASEURL ?>Profile/updateAdmin" method="POST" class="mb-3">
 
             <label for="nama" class="form-label">Nama:</label>
             <input class="form-control" type="text" aria-label="Disabled input example" disabled id="nama" value="<?= $data['user']['name']; ?>">

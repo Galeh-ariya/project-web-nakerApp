@@ -72,6 +72,21 @@ class Auth extends Controller {
 
     }
 
+    public function setPasswordAdmin() {
+        
+        // var_dump($_POST); die;
+        if($this->model('User_model')->setPass($_POST) > 0) {
+            Flashalert::setFlash('Berhasil mengubah', 'password', 'success');
+            header('Location: ' . BASEURL . 'auth/logoutAfterSetPass');
+        } else {
+            Flashalert::setFlash('Gagal mengubah', 'password', 'danger');
+            header('Location: ' . BASEURL . 'admin/ubahPassword');
+        }
+        
+
+
+    }
+
     public function logoutAfterSetPass() {
         session_destroy();
         session_unset();
