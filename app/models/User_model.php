@@ -1,5 +1,9 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
 class User_model {
     private $db;
 
@@ -15,7 +19,7 @@ class User_model {
         $password = htmlspecialchars($data['password']);
         $konfir = htmlspecialchars($data['passwordC']);
         $role = '2';
-        $active = '1';
+        $active = '0';
 
         $verifyEmail = $this->cekEmail($email);
 
@@ -36,14 +40,95 @@ class User_model {
             $password = password_hash($password, PASSWORD_DEFAULT);
             // var_dump($password); die;
 
-            $sql = "INSERT INTO users (name, email, password, role_id, is_active) VALUES ('$name', '$email', '$password', $role, $active)";
+            $sqlUser = "INSERT INTO users (name, email, password, role_id, is_active) VALUES ('$name', '$email', '$password', $role, $active)";
 
-            $this->db->query($sql);
+            $token = substr(str_replace(['+', '/', '='], '', base64_encode(random_bytes(32))), 0, 32);
+            $date = time();
 
+            // $token = explode('/', $token);
+            // $token = $token[0];
+            // var_dump($token); die;
+
+            $sqlToken = "INSERT INTO user_token (email, token, date_created) VALUES ('$email', '$token', $date)";
+
+            $this->db->query($sqlUser);
             $this->db->execute();
 
+            $this->db->query($sqlToken);
+            $this->db->execute();
+
+            $sqlqueryToken = "SELECT * FROM user_token WHERE email = '$email'";
+            $this->db->query($sqlqueryToken);
+            $result = $this->db->single();
+            // var_dump($result); die;
+            $token = $result['token'];
+
+            $this->_sendEmail($token, 'verify');
+
             return 1;
+
+            
         }
+
+    }
+
+    private function _sendEmail($token, $type) {
+
+        // var_dump($token); die;
+
+        $email = $_POST['email'];
+
+        $name = "Peraturan Ketenagakerjaan";  // Name of your website or yours
+        $to = $email;  // mail of reciever
+
+        if($type == 'verify') {
+
+            $subject = "Account Verification";
+            $body =  'Click this link to verify your account : <a href="'. BASEURL . 'auth/verify/' . $email . '/' . urlencode($token) .'">Activate</a>';
+
+        }
+
+        $from = "devgaleh@gmail.com";  // you mail
+        $password = "qwobghsgomcmxryl";  // your mail password
+    
+            // Ignore from here
+    
+            // require_once "PHPMailer/PHPMailer.php";
+            // require_once "PHPMailer/SMTP.php";
+            // require_once "PHPMailer/Exception.php";
+        $mail = new PHPMailer(true);
+    
+            // To Here
+    
+            //SMTP Settings
+        $mail->isSMTP();
+            $mail->SMTPDebug = 3;  //Keep It commented this is used for debugging                          
+        $mail->Host = "smtp.gmail.com"; // smtp address of your email
+        $mail->SMTPAuth = true;
+        $mail->Username = $from;
+        $mail->Password = $password;
+        $mail->Port = 465;  // port
+        $mail->SMTPSecure = "ssl";  // tls or ssl
+        $mail->smtpConnect([
+        'ssl' => [
+            'verify_peer' => false,
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
+            ]
+        ]);
+    
+            //Email Settings
+        $mail->isHTML(true);
+        $mail->setFrom($from, $name);
+        $mail->addAddress($to); // enter email address whom you want to send
+        $mail->Subject = ("$subject");
+        $mail->Body = $body;
+        if ($mail->send()) {
+            echo "Email is sent!";
+        } else {
+             echo "Something is wrong: <br><br>" . $mail->ErrorInfo;
+        }  
+
 
     }
 
@@ -51,7 +136,18 @@ class User_model {
 
         $sql = "SELECT * FROM users WHERE email = '$email'";
         $this->db->query($sql);
-        $user = $this->db->resultSet();
+        $user = $this->db->single();
+
+        // var_dump($user); die;
+        return $user;
+
+    }
+
+    public function cekEmailVeryfy($email) {
+
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $this->db->query($sql);
+        $user = $this->db->single();
 
         // var_dump($user); die;
         return $user;
@@ -68,7 +164,7 @@ class User_model {
          $this->db->query($sql);
          $user = $this->db->resultSet()[0];
 
-        //  var_dump($user);
+        //  var_dump($user); die;
         //  die;
 
          if($user) {
@@ -97,24 +193,18 @@ class User_model {
                     
 
                 } else {
-                    echo "<script>
-                    alert('Password salah!');
-                    document.location.href = 'auth';
-                    </script>";
+                    Flashalert::setFlash("Password anda", "salah", "danger");
+                    header('Location: ' . BASEURL . 'auth');
                 }
 
             } else {
-                echo "<script>
-                alert('Email belum terverifikasi');
-                document.location.href = 'auth';
-                </script>";
+                Flashalert::setFlash("Email belum", "teraktivasi", "danger");
+                header('Location: ' . BASEURL . 'auth');
             }
 
          } else {
-            echo "<script>
-            alert('Email belum terdaftar silahkan registrasi!');
-            document.location.href = 'auth';
-            </script>";
+            Flashalert::setFlash("Email belum", "terdaftar", "danger");
+            header('Location: ' . BASEURL . 'auth');
          }
 
 
@@ -202,6 +292,51 @@ class User_model {
         } else {
             return false;
         }
+
+    }
+
+
+    public function changePassword($data) {
+
+        // var_dump($_SESSION['user_data']); die;
+
+        $pass1 = htmlspecialchars($data['password']);
+        $pass2 = htmlspecialchars($data['passwordC']);
+
+        if($pass1 == $pass2) {
+
+            $password = password_hash($pass1, PASSWORD_DEFAULT);
+            $email = $_SESSION['user_data'];
+
+            $sql = "UPDATE users SET password = '$password' WHERE email = '$email'";
+            $this->db->query($sql);
+            $this->db->execute();
+
+            unset($_SESSION['user_data']);
+
+            return 1;
+        } else {
+            return 0;
+        }
+
+    }
+
+
+    public function deleteUser($email) {
+
+        $sql = "DELETE FROM users WHERE email = '$email'";
+
+        $this->db->query($sql);
+        $this->db->execute();
+
+    }
+
+    public function isActive($email) {
+
+        $sql = "UPDATE users SET is_active = 1 WHERE email = '$email'";
+
+        $this->db->query($sql);
+        $this->db->execute();
 
     }
 

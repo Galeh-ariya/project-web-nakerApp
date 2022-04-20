@@ -2,6 +2,15 @@
 
 class Admin extends Controller {
 
+    public function __construct()
+    {
+        // if(!$_SESSION['data']) {
+        //     header('Location: ' . BASEURL . 'auth');
+        // }
+        LoginUtil::is_login();
+    }
+
+
     public function index() {
         
         $data['page'] = "Home Admin | Naker";

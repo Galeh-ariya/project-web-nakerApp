@@ -21,7 +21,12 @@
     </div>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit" name="submit">Login</button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+    <p class="mt-4 mb-3 text-muted">&copy; 2022</p>
+
+    <a href="<?= BASEURL ?>auth/forgotpassword" class="mt-5 mb-3" style="text-decoration: none;">Lupa sandi?</a>
+
+    <br><br>
+    
     <a href="<?= BASEURL ?>home" class="mt-5 mb-3" style="text-decoration: none;">Kembali</a> |
     <a href="<?= BASEURL ?>auth/register" class="mt-5 mb-3" style="text-decoration: none;">Buat akun?</a>
   </form>

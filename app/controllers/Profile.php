@@ -3,6 +3,11 @@
 
 class Profile extends Controller {
 
+    public function __construct()
+    {
+        loginUtil::is_login();
+    }
+
     public function index() {
 
         $data['page'] = 'Profile | Naker';

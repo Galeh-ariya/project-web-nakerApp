@@ -2,6 +2,11 @@
 
 class Content extends Controller {
 
+    public function __construct()
+    {
+        loginUtil::is_login();
+    }
+
     public function index($id) {
 
         $data['page'] = "Detail | Naker";

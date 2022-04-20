@@ -4,7 +4,7 @@ section div.container div.box {
     height: 350px;
     background-color: grey;
     border-radius: 15px;
-    background-image: url('../img/jumb.jpg');
+    background-image: url('../img/Wave.svg');
     background-size: cover;
     background-position: center;
 }

@@ -3,6 +3,11 @@
 
 class User extends COntroller {
 
+    public function __construct()
+    {
+        loginUtil::is_login();
+    }
+
     public function index() {
 
         
