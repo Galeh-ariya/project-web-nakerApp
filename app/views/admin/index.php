@@ -58,8 +58,8 @@
                     <div class="col">
                         <div class="card" style="width: 18rem; width: 90%" >
                             <ul class="list-group list-group-flush">
-                                <li class="list-group-item d-flex justify-content-between align-items-start">
-                                User <span class="badge bg-primary text-right">4</span></li>
+                                <a href="<?= BASEURL ?>admin/listUser" style="text-decoration:none;"><li class="list-group-item d-flex justify-content-between align-items-start">
+                                User <span class="badge bg-primary text-right"><?= $data['count']['total']; ?></span></li></a>
                             </ul>
                         </div>
                     </div>

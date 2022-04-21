@@ -340,4 +340,46 @@ class User_model {
 
     }
 
+    public function getActiveUser() {
+
+        $sql = "SELECT * FROM users WHERE role_id = 2 ORDER BY id DESC";
+
+        $this->db->query($sql);
+        $data = $this->db->resultSet();
+        // var_dump($data); die;
+        return $data;
+
+    }
+
+    public function cariS($data) {
+
+        $key = $data['keyword'];
+
+        $sql = "SELECT * FROM users WHERE name LIKE '%$key%' OR email LIKE '%$key%' OR gender LIKE '%$key%' ORDER BY id DESC" ;
+
+        $this->db->query($sql);
+        return $this->db->resultSet();
+
+    }
+
+    public function countUser() {
+
+        $sql = "SELECT count(name) AS total FROM users WHERE role_id = 2";
+        $this->db->query($sql);
+        // var_dump($this->db->single()); die;
+        return $this->db->single();
+
+    }
+
+    public function delete($id) {
+
+        $sql = "DELETE FROM users WHERE id = $id";
+
+        $this->db->query($sql);
+        $this->db->execute();
+
+        return $this->db->rowCount();
+
+    }
+
 }

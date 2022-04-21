@@ -35,12 +35,12 @@
         
           <div class="mb-3">
             <label for="judulp" class="form-label">Judul pertanyaan</label>
-            <input type="text" name="judulp" class="form-control" id="judulp" placeholder="masukkan judul pertanyaan anda">
+            <input type="text" name="judulp" class="form-control" id="judulp" placeholder="masukkan judul pertanyaan anda" required>
           </div>
 
           <div class="mb-3">
             <label for="ask" class="form-label">Pertanyaan</label>
-            <textarea class="form-control" name="ask" id="ask" rows="8" placeholder="Tulis Pertanyaan anda"></textarea>
+            <textarea class="form-control" name="ask" id="ask" rows="8" placeholder="Tulis Pertanyaan anda" required></textarea>
           </div>
 
           <button class="btn btn-primary" type="submit" name="submit">Kirim pertanyaan</button>

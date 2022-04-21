@@ -20,6 +20,8 @@ class Admin extends Controller {
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
         // var_dump($data['user']); die;
 
+        $data['count'] = $this->model('User_model')->countUser();
+
         $this->view("templates/header", $data);
         $this->view("admin/index", $data);
         $this->view("templates/footer");
@@ -121,6 +123,45 @@ class Admin extends Controller {
         $this->view("admin/pass", $data);
         $this->view("templates/footer");
         
+    }
+
+
+    public function listUser() {
+
+        $data['page'] = "List User active";
+
+        $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+        $data['user_data'] = $this->model('User_model')->getActiveUser();
+
+        $this->view("templates/header", $data);
+        $this->view("admin/user", $data);
+        $this->view("templates/footer");
+
+    }
+
+    public function cariUser() {
+
+        $data['page'] = "List User active";
+
+        $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+        $data['user_data'] = $this->model('User_model')->cariS($_POST);
+
+        $this->view("templates/header", $data);
+        $this->view("admin/user", $data);
+        $this->view("templates/footer");
+
+    }
+
+    public function deleteUser($id) {
+
+        if($this->model('User_model')->delete($id) > 0) {
+            Flashalert::setFlash('User berhasil', 'dihapus', 'success');
+            header('Location: ' . BASEURL . 'admin/listUser');
+        } else {
+            Flashalert::setFlash('User gagal', 'dihapus', 'danger');
+            header('Location: ' . BASEURL . 'admin/listUser');
+        }
+
     }
 
 }

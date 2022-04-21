@@ -3,7 +3,7 @@
     <a class="navbar-brand" href="#">NaKer</a>
       <div class="navbar-nav">
 
-      <a class="nav-link mx-4" aria-current="page" href="#"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger">4</span>
+      <a class="nav-link mx-4" aria-current="page" href="#"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger">!</span>
         </a> 
         
         <div class="dropdown">

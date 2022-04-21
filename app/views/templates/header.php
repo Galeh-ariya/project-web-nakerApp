@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 
     <!-- my css -->
-    <link rel="stylesheet" href="<?= BASEURL ?>/css/style.css">
+    <link rel="stylesheet" href="<?= BASEURL ?>css/style.css">
 
     <title><?= $data['page']; ?></title>
   </head>
