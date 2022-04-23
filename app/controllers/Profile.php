@@ -25,6 +25,7 @@ class Profile extends Controller {
         $data['page'] = 'Profile | Naker';
 
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+        $data['notify'] = $this->model('Qa_model')->countNotify();
 
         $this->view("templates/header", $data);
         $this->view("Profile/admin", $data);

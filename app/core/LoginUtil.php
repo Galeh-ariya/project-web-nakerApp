@@ -18,7 +18,9 @@ class loginUtil {
 
             if($role_id > 1 && $access === 'admin') {
                 header('Location: ' .  BASEURL . 'auth/access');
-            } 
+             }//elseif($role_id < 2 && $access === 'qa') {
+            //     header('Location: ' .  BASEURL . 'admin');
+            // }
             
 
         }

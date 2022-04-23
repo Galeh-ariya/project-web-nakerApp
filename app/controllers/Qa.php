@@ -28,6 +28,7 @@ class Qa extends Controller {
         // var_dump($data['user']); die;
 
         $data['req'] = $this->model('Qa_model')->getAllJoinSended();
+        $data['notify'] = $this->model('Qa_model')->countNotify();
         // var_dump($data['req']); die;
 
         $this->view("templates/header", $data);
@@ -44,6 +45,37 @@ class Qa extends Controller {
         } else {
             Flashalert::setFlash('Gagal mengirim', 'pertanyaan', 'danger');
             header('Location: ' . BASEURL . 'qa');
+        }
+
+    }
+
+    public function admInsert($id) {
+
+        $data['page'] = "Jawab Pertanyaan";
+
+        $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+        // var_dump($data['user']); die;
+
+        $data['qa'] = $this->model('Qa_model')->getQa($id);
+        // var_dump($data['qa']);  die;
+        $data['notify'] = $this->model('Qa_model')->countNotify();
+
+        $this->view("templates/header", $data);
+        $this->view("qa/answer", $data);
+        $this->view("templates/footer");
+
+    }
+
+    public function insertAswAdm() {
+
+        // var_dump($_POST); die;
+
+        if($this->model('Qa_model')->insertAsw($_POST) > 0) {
+            Flashalert::setFlash('Berhasil mengirim', 'jawaban', 'success');
+            header('Location: ' . BASEURL . 'qa/admin');
+        } else {
+            Flashalert::setFlash('Gagal mengirim', 'jawaban', 'danger');
+            header('Location: ' . BASEURL . 'qa/admin');
         }
 
     }

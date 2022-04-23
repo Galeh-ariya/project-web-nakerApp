@@ -21,6 +21,7 @@ class Admin extends Controller {
         // var_dump($data['user']); die;
 
         $data['count'] = $this->model('User_model')->countUser();
+        $data['notify'] = $this->model('Qa_model')->countNotify();
 
         $this->view("templates/header", $data);
         $this->view("admin/index", $data);
@@ -33,6 +34,7 @@ class Admin extends Controller {
         $data['page'] = "Home Admin | Naker";
 
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+        $data['notify'] = $this->model('Qa_model')->countNotify();
 
         $this->view("templates/header", $data);
         $this->view("admin/insert", $data);
@@ -46,6 +48,7 @@ class Admin extends Controller {
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
 
         $data['fileUser'] = $this->model('Content_model')->getWhere($id)[0];
+        $data['notify'] = $this->model('Qa_model')->countNotify();
 
         $this->view("templates/header", $data);
         $this->view("admin/edit", $data);
@@ -132,6 +135,7 @@ class Admin extends Controller {
 
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
         $data['user_data'] = $this->model('User_model')->getActiveUser();
+        $data['notify'] = $this->model('Qa_model')->countNotify();
 
         $this->view("templates/header", $data);
         $this->view("admin/user", $data);
