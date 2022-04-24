@@ -71,8 +71,8 @@ class User_token_model {
 
         }
 
-        $from = "example@gmail.com";  // you mail
-        $password = "**********";  // your mail password
+        $from = "devgaleh@gmail.com";  // you mail
+        $password = "qwobghsgomcmxryl";  // your mail password
     
             // Ignore from here
     
