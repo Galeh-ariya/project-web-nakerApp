@@ -88,8 +88,8 @@ class User_model {
 
         }
 
-        $from = "devgaleh@gmail.com";  // you mail
-        $password = "qwobghsgomcmxryl";  // your mail password
+        $from = "example@gmail.com";  // you mail
+        $password = "*********";  // your mail password
     
             // Ignore from here
     
