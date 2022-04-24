@@ -382,4 +382,14 @@ class User_model {
 
     }
 
+    public function userAsw($id) {
+
+        $sql = "SELECT * FROM qa WHERE user_id = $id AND answer IS NOT NULL";
+
+        $this->db->query($sql);
+        return $this->db->resultSet();
+        // var_dump($this->db->resultSet()); die;
+
+    }
+
 }

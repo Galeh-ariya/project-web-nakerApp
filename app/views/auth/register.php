@@ -1,7 +1,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="#">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>home">NaKer</a>
       <div class="navbar-nav">
         
         <div class="dropdown">

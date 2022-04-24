@@ -120,6 +120,8 @@ class Admin extends Controller {
         
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
         // var_dump($data['user']); die;
+
+        $data['notify'] = $this->model('Qa_model')->countNotify();
     
     
         $this->view("templates/header", $data);
@@ -165,6 +167,40 @@ class Admin extends Controller {
             Flashalert::setFlash('User gagal', 'dihapus', 'danger');
             header('Location: ' . BASEURL . 'admin/listUser');
         }
+
+    }
+
+    public function qa() {
+
+        $data['page'] = "Tanya Jawab";
+
+        $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+
+        $data['qall'] = $this->model('Qa_model')->cardQa();
+        // var_dump($data['qall']); die;
+        
+        $data['notify'] = $this->model('Qa_model')->countNotify();
+
+        $this->view("templates/header", $data);
+        $this->view("admin/qa", $data);
+        $this->view("templates/footer");
+
+    }
+
+    public function asw($judul) {
+
+        // var_dump($judul); die;
+        $data['asw'] = $this->model('Qa_model')->qaUser($judul);
+
+        $data['page'] = $data['asw']['judul'] . " | Naker";
+
+        $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
+
+        $data['notify'] = $this->model('Qa_model')->countNotify();
+
+        $this->view("templates/header", $data);
+        $this->view("admin/content", $data);
+        $this->view("templates/footer");
 
     }
 

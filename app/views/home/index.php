@@ -1,7 +1,9 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="#">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>home">NaKer</a>
       <div class="navbar-nav">
+
+      <a href="<?= BASEURL ?>Home/qa"class="nav nav-link active">Q&A</a>
         
         <div class="dropdown">
             <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

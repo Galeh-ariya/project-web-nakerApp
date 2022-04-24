@@ -2,7 +2,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="#">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>admin">NaKer</a>
       <div class="navbar-nav">
 
         <a class="nav-link mx-4" aria-current="page" href="<?= BASEURL ?>qa/admin"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger"><?= $data['notify']['notif']; ?></span>
@@ -60,6 +60,9 @@
                             <ul class="list-group list-group-flush">
                                 <a href="<?= BASEURL ?>admin/listUser" style="text-decoration:none;"><li class="list-group-item d-flex justify-content-between align-items-start">
                                 User <span class="badge bg-primary text-right"><?= $data['count']['total']; ?></span></li></a>
+
+                                <a href="<?= BASEURL ?>admin/qa" style="text-decoration:none;"><li class="list-group-item d-flex justify-content-between align-items-start">
+                                Tanya Jawab</li></a>
                             </ul>
                         </div>
                     </div>

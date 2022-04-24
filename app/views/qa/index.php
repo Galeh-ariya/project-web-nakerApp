@@ -6,7 +6,7 @@
         
         <div class="dropdown">
             <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
+            <i class="bi bi-person-circle fa-1x"></i> <?= strtoupper($data['user']['name']); ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="<?= BASEURL ?>profile">Profile</a></li>

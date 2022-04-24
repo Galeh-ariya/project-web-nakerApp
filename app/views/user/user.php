@@ -8,7 +8,7 @@
         
         <div class="dropdown">
             <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
+            <i class="bi bi-person-circle fa-1x"></i> <?= strtoupper($data['user']['name']); ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 <li><a class="dropdown-item" href="<?= BASEURL ?>profile">Profile</a></li>
@@ -51,18 +51,10 @@
                             <a href="<?= BASEURL ?>qa" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">
                             Ajukan Pertanyaan</li></a>
 
-                            <a href="#" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">Jawaban<span class="badge bg-danger rounded-pill">!</span></li></a>
-
-                            <div class="dropdown">
-                                <p class="nav-link active dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                                Tahun
-                                </p>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                    <li><a class="dropdown-item" href="#">Hukum</a></li>
-                                    <li><a class="dropdown-item" href="#">Budaya</a></li>
-                                    <li><a class="dropdown-item" href="#">dan lain lain</a></li>
-                                </ul>
-                            </div>
+                            <a href="<?= BASEURL ?>User/answer/<?= $data['user']['id'] ?>" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">Jawaban<span class="badge bg-danger rounded-pill">!</span></li></a>
+                            
+                            <a href="<?= BASEURL ?>Home/qa" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">Tanya Jawab</li></a>
+                            
                         </ul>
                         </div>
                     </div>

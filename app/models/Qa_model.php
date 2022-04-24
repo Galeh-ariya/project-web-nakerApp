@@ -29,8 +29,11 @@ class Qa_model {
     public function insert($data) {
 
         $id = htmlspecialchars($data['id']);
-        $judul = htmlspecialchars($data['judulp']);
         $ask = htmlspecialchars($data['ask']);
+        
+        $judul = htmlspecialchars($data['judulp']);
+        $judul = str_replace([" "], '-', $judul);
+        // var_dump($judul); die;
 
         $sql = "INSERT INTO qa (judul, ask, user_id) VALUES ('$judul', '$ask', '$id')";
 
@@ -67,6 +70,26 @@ class Qa_model {
     public function countNotify() {
 
         $sql = "SELECT count(id) AS notif FROM qa WHERE answer IS NULL";
+
+        $this->db->query($sql);
+        // var_dump($this->db->single()); die;
+        return $this->db->single();
+
+    }
+
+    public function cardQa() {
+
+        $sql = "SELECT id, judul, time_create FROM qa WHERE answer IS NOT NULL";
+
+        $this->db->query($sql);
+        // var_dump($this->db->resultSet()); die;
+        return $this->db->resultSet();
+
+    }
+
+    public function qaUser($judul) {
+
+        $sql = "SELECT q.judul, q.ask, q.answer, q.time_create, u.name FROM qa AS q JOIN users AS u ON (q.user_id= u.id) WHERE q.judul = '$judul'";
 
         $this->db->query($sql);
         // var_dump($this->db->single()); die;
