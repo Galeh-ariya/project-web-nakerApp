@@ -34,7 +34,7 @@
         <div class="row">
             <div class="col-md-10">
                 <h1>Tanya Jawab</h1>
-                <hr style="width: 225px;">
+                <hr style="width: 250px;">
             </div>
         </div>
     </div>

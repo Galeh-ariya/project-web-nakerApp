@@ -17,7 +17,12 @@
   </div>
 </nav>
 
-<div class="container mb-4"  style="margin-top: 100px;">
+<div class="container mb-5"  style="margin-top: 100px;">
+
+    <ol class="breadcrumb mb-5">
+        <li class="breadcrumb-item"><a href="<?= BASEURL ?>user/index/#here">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Kirim pertanyaan</li>
+    </ol>
 
   <div class="row">
 
@@ -27,7 +32,7 @@
 
     <?php Flashalert::flash(); ?>
 
-    <div class="col-md-8 mt-4">
+    <div class="col-md-8">
       <div class="askbox" style="border: 1px groove; padding: 15px;">
         <form action="<?= BASEURL ?>Qa/insertAsk" method="POST">
 
