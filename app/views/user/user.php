@@ -62,17 +62,23 @@
             </div>
 
             <div class="col-md-9">
-                <h2 class="mt-5">Peraturan</h2>
-                <hr width="120px">
+                <div class="section-head d-flex justify-content-between align-items-center border-bottom mt-5 mb-3">
+                    <h2 class="mb-3">Peraturan</h2>
+                    <div class="read-more">
+                        <a href="#" class="d-md-block text-decoration-none text-dark mb-3">
+                            <span>Lihat Selengkapnya <i class="fa fa-arrow-right ml-2"></i></span>
+                        </a>
+                    </div>
+                </div>
 
                 <div class="row">
                     <?php foreach($data['all'] as $val) : ?>
                     <div class="col-md-4 mt-3">
                         <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title"><a href="<?= BASEURL ?>Content/index/<?= $val['id']; ?>" style="color: black;"><?= $val['peraturan']; ?></a></h5>
+                                <h5 class="card-title"><a href="<?= BASEURL ?>Content/index/<?= $val['id']; ?>" style="color: black; text-decoration: none;"><?= $val['peraturan']; ?></a></h5>
                                 <h6 class="card-subtitle mb-2 text-muted"><?= $val['time_create']; ?></h6>
-                                <p class="card-text"><?= $val['tentang']; ?> <a href="<?= BASEURL ?>Content/index/<?= $val['id']; ?>" style="text-decoration: none;">tampilkan lebih banyak...</a></p>
+                                <p class="card-text"><?= $val['tentang']; ?>... <a href="<?= BASEURL ?>Content/index/<?= $val['id']; ?>" style="text-decoration: none;">tampilkan lebih banyak</a></p>
                             </div>
                         </div>
                     </div>
@@ -102,16 +108,70 @@
     <div class="back fixed text-center">
         <a href="#"><i class="fas fa-chevron-up fa-xl" style="color: white;"></i></a>
     </div>
-    <div class="container ">
-        <div class="row p">
-            <div class="col-md-4 ">
-                <h4>Judul website</h4>
-            </div>
-            <div class="col-md-6 offset-1">
-                <h4>Sosmed</h4>
+    <footer class="bg-dark text-white pt-5 pb-4">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 text-warning fw-bold">Company Name</h5>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error voluptates laboriosam dolorem illum officiis repellat?</p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 text-warning fw-bold">Products</h5>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">The Providers</a></p>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Creativity</a></p>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Source Files</a></p>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Bootstrap 5</a></p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 text-warning fw-bold">Useful Links</h5>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Your Account</a></p>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Become an Affiliates</a></p>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Shipping Rates</a></p>
+                    <p><a href="#" class="text-white" style="text-decoration: none;">Help</a></p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 text-warning fw-bold">Contact</h5>
+                    <p><i class="fas fa-home me-3"></i>Surabaya</p>
+                    <p><i class="fas fa-envelope me-3"></i>email@email.com</p>
+                    <p><i class="fas fa-phone me-3"></i>+62 1234576</p>
+                    <p><i class="fas fa-print me-3"></i>+62 423334</p>
+                </div>
+
+                <hr class="mb-4">
+
+                <div class="row align-items-center">
+                    <div class="col-md-7 col-lg-8">
+                        <p>Copyright ©2022 All rights reserved by: <a href="#" style="text-decoration: none;"><strong class="text-warning">The Providers</strong></a></p>
+                    </div>
+
+                    <div class="col-md-5 col-lg-4">
+                        <div class="text-center text-md-end">
+                            <ul class="list-unstyled list-inline">
+                                <li class="list-inline-item">
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-google-plus"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-youtube"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </footer>
 </div>
 
 
