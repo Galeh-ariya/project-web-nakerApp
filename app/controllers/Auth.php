@@ -9,7 +9,6 @@ class Auth extends Controller {
         if(!isset($_POST['submit'])) {
             $this->view("templates/header", $data);
             $this->view("Auth/login");
-            $this->view("templates/footer");
         } else {
             $this->_login();
         }
@@ -43,7 +42,6 @@ class Auth extends Controller {
 
         $this->view("templates/header", $data);
         $this->view("Auth/register");
-        $this->view("templates/footer");
 
     }
 

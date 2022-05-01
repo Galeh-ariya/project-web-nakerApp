@@ -105,6 +105,10 @@ class Admin extends Controller {
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
         // var_dump($data['user']); die;
 
+        $data['count'] = $this->model('User_model')->countUser();
+        $data['notify'] = $this->model('Qa_model')->countNotify();
+        
+
         $this->view("templates/header", $data);
         $this->view("admin/index", $data);
         $this->view("templates/footer");
@@ -151,6 +155,8 @@ class Admin extends Controller {
 
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
         $data['user_data'] = $this->model('User_model')->cariS($_POST);
+
+        $data['notify'] = $this->model('Qa_model')->countNotify();
 
         $this->view("templates/header", $data);
         $this->view("admin/user", $data);
