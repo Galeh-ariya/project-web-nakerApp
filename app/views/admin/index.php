@@ -93,39 +93,11 @@
                     <?php endforeach; ?>
                 </div>
             </div>
-
-        <nav aria-label="Page navigation example" class="mt-5">
-            <ul class="pagination justify-content-end">
-                <li class="page-item disabled">
-                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </section>
 
 
-<div class="ftr mt-5">
-    <div class="back text-center">
-        <a href="#"><i class="fas fa-chevron-up fa-xl" style="color: white;"></i></a>
-    </div>
-    <div class="container ">
-        <div class="row p">
-            <div class="col-md-4 ">
-                <h4>Judul website</h4>
-            </div>
-            <div class="col-md-6 offset-1">
-                <h4>Sosmed</h4>
-            </div>
-        </div>
-    </div>
-</div>
+
 
 
     

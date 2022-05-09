@@ -22,7 +22,7 @@ class User extends COntroller {
     
     
         $this->view("templates/header", $data);
-        $this->view("User/user", $data);
+        $this->view("user/user", $data);
         $this->view("templates/footer");
     
     

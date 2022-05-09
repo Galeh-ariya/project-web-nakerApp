@@ -36,7 +36,7 @@
         
         <div class="col-md-2">
             <div class="btn1 mb-4">
-                <a href=""><button class="btn btn-warning">Ubah</button></a>
+                <a href="<?= BASEURL ?>admin/edit/<?= $data["id"]; ?>"><button class="btn btn-warning">Ubah</button></a>
             </div>
             <div class="btn2">
                 <a href="<?= BASEURL ?>admin"><button class="btn btn-danger">Kembali</button></a>

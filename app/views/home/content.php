@@ -23,6 +23,7 @@
     <div class="row">
         <div class="col-md-10 mb-4">
             <h1><?= str_replace(["-"], ' ', $data['asw']['judul']); ?></h1>
+            <hr>
         </div>
 
         <div class="col-md-10">
@@ -44,13 +45,16 @@
 
     <div class="row mt-5">
         <div class="col-md-10">
+            <hr>
                 <h3>Ulasan</h3>
         </div>
-        <div class="bgu">
+        <div class="bgu" style="background-color: #003366; color:white; padding:30px; border-radius:20px;">
             <div class="col-md-10">
             <?= $data['asw']['answer']; ?>
             </div>
         </div>
+        <a href="<?= BASEURL ?>home/qa"><button class="btn btn-danger mt-3">Kembali</button></a>
     </div>
+
 
 </div>
