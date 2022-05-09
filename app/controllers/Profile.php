@@ -15,7 +15,7 @@ class Profile extends Controller {
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
 
         $this->view("templates/header", $data);
-        $this->view("Profile/index", $data);
+        $this->view("profile/index", $data);
         $this->view("templates/footer");
 
     }
@@ -28,7 +28,7 @@ class Profile extends Controller {
         $data['notify'] = $this->model('Qa_model')->countNotify();
 
         $this->view("templates/header", $data);
-        $this->view("Profile/admin", $data);
+        $this->view("profile/admin", $data);
         $this->view("templates/footer");
 
     }

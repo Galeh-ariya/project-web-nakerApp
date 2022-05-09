@@ -26,7 +26,6 @@ class Content extends Controller {
         // var_dump($id);die;
 
         $data['page'] = "Detail | Naker";
-        $data['id'] = $id;
 
         $data['user'] = $this->model('User_model')->viewUser($_SESSION)[0];
         $data['userD'] = $this->model('Content_model')->getWhere($id)[0];

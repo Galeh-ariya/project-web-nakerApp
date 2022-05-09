@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="<?= BASEURL ?>user">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>User">NaKer</a>
       <div class="navbar-nav">
 
         
@@ -9,8 +9,8 @@
             <i class="bi bi-person-circle fa-1x"></i> <?= strtoupper($data['user']['name']); ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="<?= BASEURL ?>profile">Profile</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Profile">Profile</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
             </ul>
         </div>
       </div>
@@ -44,7 +44,7 @@
           </div>
 
           <button class="btn btn-primary" type="submit" name="submit">Kirim pertanyaan</button>
-          <a href="<?= BASEURL ?>user"><button class="btn btn-danger" type="button">Kembali</button></a>
+          <a href="<?= BASEURL ?>User"><button class="btn btn-danger" type="button">Kembali</button></a>
 
         </form>
       </div>

@@ -18,5 +18,5 @@ require_once "app/PHPMailer/SMTP.php";
 require_once "app/PHPMailer/Exception.php";
 require_once "app/PHPMailer/vendor/autoload.php";
 
-require_once "repository/DatabaseConfig.php";
+require_once "app/repository/DatabaseConfig.php";
 

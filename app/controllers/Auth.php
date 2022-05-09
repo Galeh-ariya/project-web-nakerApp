@@ -8,7 +8,8 @@ class Auth extends Controller {
 
         if(!isset($_POST['submit'])) {
             $this->view("templates/header", $data);
-            $this->view("Auth/login");
+            $this->view("auth/login");
+            $this->view("templates/footer");
         } else {
             $this->_login();
         }
@@ -42,6 +43,7 @@ class Auth extends Controller {
 
         $this->view("templates/header", $data);
         $this->view("auth/register");
+        $this->view("templates/footer");
 
     }
 
@@ -193,7 +195,7 @@ class Auth extends Controller {
             } else {
 
                 $this->view("templates/header", $data);
-                $this->view("Auth/forgot");
+                $this->view("auth/forgot");
                 $this->view("templates/footer");
             }
 
@@ -245,7 +247,7 @@ class Auth extends Controller {
             // var_dump($data['user_data']); die;
     
             $this->view("templates/header", $data);
-            $this->view("Auth/ubahPass", $data);
+            $this->view("auth/ubahPass", $data);
             $this->view("templates/footer");
         }
 

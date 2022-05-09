@@ -2,7 +2,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="<?= BASEURL ?>user">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>User">NaKer</a>
       <div class="navbar-nav">
 
         
@@ -11,8 +11,8 @@
             <i class="bi bi-person-circle fa-1x"></i> <?= strtoupper($data['user']['name']); ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="<?= BASEURL ?>profile">Profile</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Profile">Profile</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
             </ul>
         </div>
       </div>
@@ -27,7 +27,7 @@
         <div class="box">
             <br>
             <h3 style="color: white; padding-top: 100px;" class="text-center">Cari data yang kamu butuhkan disini</h3>
-            <form action="<?= BASEURL ?>user/cari/#here" method="POST" class="d-flex justify-content-center" style="margin-top: 100px;">
+            <form action="<?= BASEURL ?>User/cari/#here" method="POST" class="d-flex justify-content-center" style="margin-top: 100px;">
                 <input class="form-control me-1" type="search" name="keyword" placeholder="Search" aria-label="Search" style="width: 300px;" autocomplete="off" autofocus>
                 <button id="here" class="btn btn-success" type="submit" name="submit">Search</button>
             </form>
@@ -48,7 +48,7 @@
                     <div class="card" style="width: 18rem; width: 90%" >
                         <ul class="list-group list-group-flush ">
 
-                            <a href="<?= BASEURL ?>qa" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">
+                            <a href="<?= BASEURL ?>Qa" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">
                             Ajukan Pertanyaan</li></a>
 
                             <a href="<?= BASEURL ?>User/answer/<?= $data['user']['id'] ?>" style="text-decoration: none;"><li class="list-group-item d-flex justify-content-between align-items-start">Jawaban<span class="badge bg-danger rounded-pill">!</span></li></a>

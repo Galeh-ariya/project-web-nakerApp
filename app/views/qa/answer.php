@@ -1,9 +1,9 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="<?= BASEURL ?>admin">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>Admin">NaKer</a>
       <div class="navbar-nav">
 
-        <a class="nav-link mx-4" aria-current="page" href="<?= BASEURL ?>qa/admin"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger"><?= $data['notify']['notif']; ?></span>
+        <a class="nav-link mx-4" aria-current="page" href="<?= BASEURL ?>Qa/admin"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger"><?= $data['notify']['notif']; ?></span>
         </a> 
         
         <div class="dropdown">
@@ -11,9 +11,9 @@
             <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="<?= BASEURL ?>profile/admin">Profile</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Profile/admin">Profile</a></li>
                 <li><a class="dropdown-item" href="<?= BASEURL ?>Admin/insert">Tambah data</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth/logOut">Logout</a></li>
             </ul>
         </div>
       </div>
@@ -69,7 +69,7 @@
                 <button name="submit" type="submit" class="btn btn-primary">Jawab</button>
             </form>
 
-            <a href="<?= BASEURL ?>qa/admin"><button class="btn btn-danger mt-3">Kembali</button></a>
+            <a href="<?= BASEURL ?>Qa/admin"><button class="btn btn-danger mt-3">Kembali</button></a>
             
         </div>
     </div>

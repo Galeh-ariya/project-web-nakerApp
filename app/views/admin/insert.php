@@ -2,10 +2,10 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="<?= BASEURL ?>admin">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>Admin">NaKer</a>
       <div class="navbar-nav">
 
-        <a class="nav-link mx-4" aria-current="page" href="<?= BASEURL ?>qa/admin"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger"><?= $data['notify']['notif']; ?></span>
+        <a class="nav-link mx-4" aria-current="page" href="<?= BASEURL ?>Qa/admin"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger"><?= $data['notify']['notif']; ?></span>
         </a> 
         
         <div class="dropdown">
@@ -13,9 +13,9 @@
             <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="<?= BASEURL ?>profile/admin">Profile</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Profile/admin">Profile</a></li>
                 <li><a class="dropdown-item" href="<?= BASEURL ?>Admin/insert">Tambah data</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth/logOut">Logout</a></li>
             </ul>
         </div>
       </div>
@@ -38,7 +38,7 @@
 
         </div>
         <div class="col-md-6 mt-2">
-            <form action="<?= BASEURL ?>admin/tambah" method="POST">
+            <form action="<?= BASEURL ?>Admin/tambah" method="POST">
 
                 <div class="mb-3">
                     <label for="peraturan" class="form-label">Peraturan:</label>
@@ -56,7 +56,7 @@
                 </div>
 
                 <button type="submit" name="submit" class="btn btn-primary mx-2">Tambahkan</button>
-                <a href="<?= BASEURL ?>admin"><button type="button" class="btn btn-danger mx-2">Kembali</button></a>
+                <a href="<?= BASEURL ?>Admin"><button type="button" class="btn btn-danger mx-2">Kembali</button></a>
 
             </form>
         </div>

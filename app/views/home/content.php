@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="<?= BASEURL ?>home">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>Home">NaKer</a>
       <div class="navbar-nav">
 
       <a href="<?= BASEURL ?>Home/qa"class="nav nav-link active">Q&A</a>
@@ -10,8 +10,8 @@
             <i class="bi bi-person-circle fa-1x"></i>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth">Login</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/register">Register</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth">Login</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth/register">Register</a></li>
             </ul>
         </div>
       </div>
@@ -53,7 +53,7 @@
             <?= $data['asw']['answer']; ?>
             </div>
         </div>
-        <a href="<?= BASEURL ?>home/qa"><button class="btn btn-danger mt-3">Kembali</button></a>
+        <a href="<?= BASEURL ?>Home/qa"><button class="btn btn-danger mt-3">Kembali</button></a>
     </div>
 
 

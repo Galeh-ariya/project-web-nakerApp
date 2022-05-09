@@ -1,9 +1,9 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="<?= BASEURL ?>admin">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>Admin">NaKer</a>
       <div class="navbar-nav">
 
-      <a class="nav-link mx-4" aria-current="page" href="<?= BASEURL ?>qa/admin"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger"><?= $data['notify']['notif']; ?></span>
+      <a class="nav-link mx-4" aria-current="page" href="<?= BASEURL ?>Qa/admin"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger"><?= $data['notify']['notif']; ?></span>
         </a> 
         
         <div class="dropdown">
@@ -11,9 +11,9 @@
             <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="<?= BASEURL ?>profile/admin">Profile</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>admin/insert">Tambah data</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Profile/admin">Profile</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Admin/insert">Tambah data</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
             </ul>
         </div>
       </div>
@@ -25,7 +25,7 @@
     <div class="row justify-content-center text-center mt-5">
         <div class="col-md-5">
         <main class="form-signin">
-      <form action="<?= BASEURL ?>auth/setPasswordAdmin" method="POST">
+      <form action="<?= BASEURL ?>Auth/setPasswordAdmin" method="POST">
         <!-- <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
         <?php Flashalert::flash(); ?>
         <h1 class="h3 mb-3 fw-normal">Ubah Password</h1>
@@ -47,7 +47,7 @@
 
         <button class="w-100 btn btn-lg btn-warning" type="submit" name="submit">Ubah</button>
         <p class="mt-4 mb-3 text-muted">&copy; 2022</p>
-        <a href="<?= BASEURL ?>profile/admin" class="mt-5 mb-3" style="text-decoration: none;">Kembali</a>
+        <a href="<?= BASEURL ?>Profile/admin" class="mt-5 mb-3" style="text-decoration: none;">Kembali</a>
       </form>
     </main>
         </div>

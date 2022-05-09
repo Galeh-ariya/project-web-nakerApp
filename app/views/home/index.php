@@ -52,7 +52,7 @@
                                 <h5 class="card-title"><?= $d['peraturan']; ?></h5>
                                 <h6 class="card-subtitle mb-2 text-muted"><?= $d['time_create']; ?></h6>
                                 <p class="card-text"><?= $d['tentang']; ?></p>
-                                <a href="<?= BASEURL ?>auth" class="btn btn-primary">Lihat Lebih</a>
+                                <a href="<?= BASEURL ?>Auth" class="btn btn-primary">Lihat Lebih</a>
                             </div>
                         </div>
                     </div>

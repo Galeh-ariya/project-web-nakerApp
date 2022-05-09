@@ -1,7 +1,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="#">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>Admin">NaKer</a>
       <div class="navbar-nav">
 
       <a class="nav-link mx-4" aria-current="page" href="#"><i class="bi bi-chat-left-text-fill fa-1x"></i><span class="badge bg-danger">4</span>
@@ -12,9 +12,9 @@
             <i class="bi bi-person-circle fa-1x"></i> <?= $data['user']['name']; ?>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="<?= BASEURL ?>profile/admin">Profile</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>admin/insert">Tambah data</a></li>
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Profile/admin">Profile</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Admin/insert">Tambah data</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth/logOut" onclick="return confirm('apakah anda yakin ingin logout?')">Logout</a></li>
             </ul>
         </div>
       </div>
@@ -36,10 +36,10 @@
         
         <div class="col-md-2">
             <div class="btn1 mb-4">
-                <a href="<?= BASEURL ?>admin/edit/<?= $data["id"]; ?>"><button class="btn btn-warning">Ubah</button></a>
+                <a href="<?= BASEURL ?>Admin/edit/<?= $data["id"]; ?>"><button class="btn btn-warning">Ubah</button></a>
             </div>
             <div class="btn2">
-                <a href="<?= BASEURL ?>admin"><button class="btn btn-danger">Kembali</button></a>
+                <a href="<?= BASEURL ?>Admin"><button class="btn btn-danger">Kembali</button></a>
             </div>
         </div>
 

@@ -6,7 +6,7 @@
 <div class="row justify-content-center text-center mt-5">
     <div class="col-md-5">
     <main class="form-signin">
-  <form action="<?= BASEURL ?>auth/cPassword" method="POST">
+  <form action="<?= BASEURL ?>Auth/cPassword" method="POST">
     <!-- <img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
     <?php Flashalert::flash(); ?>
     <h1 class="h3 mb-3 fw-normal">Ubah sandi dari</h1>

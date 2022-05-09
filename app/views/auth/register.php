@@ -1,7 +1,7 @@
 
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="background-color: #003366;">
   <div class="container">
-    <a class="navbar-brand" href="<?= BASEURL ?>home">NaKer</a>
+    <a class="navbar-brand" href="<?= BASEURL ?>Home">NaKer</a>
       <div class="navbar-nav">
         
         <div class="dropdown">
@@ -9,7 +9,7 @@
             <i class="bi bi-person-circle fa-2x"></i>
             </p>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="<?= BASEURL ?>auth">Login</a></li>
+                <li><a class="dropdown-item" href="<?= BASEURL ?>Auth">Login</a></li>
             </ul>
         </div>
       </div>
@@ -32,7 +32,7 @@
 
         <div class="row">
             <div class="col-md-6">
-                <form action="<?= BASEURL ?>auth/register" method="POST">
+                <form action="<?= BASEURL ?>Auth/register" method="POST">
                     <div class="mb-3">
                         <label for="name" class="form-label">Nama</label>
                         <input type="text" name="name" class="form-control" id="name" placeholder="fullname" autocomplete="off" required value="<?php if(isset($_POST['submit'])) { echo $_POST['name']; } ?>">
@@ -51,7 +51,7 @@
                     </div>
 
                     <button type="submit" name="submit" class="btn btn-primary">Register</button>
-                    <a href="<?= BASEURL?>auth"><button type="button" class="btn btn-danger">Back to Login</button></a>
+                    <a href="<?= BASEURL?>Auth"><button type="button" class="btn btn-danger">Back to Login</button></a>
                 </form>
             </div>
         </div>
