@@ -41,7 +41,7 @@ class Auth extends Controller {
         
 
         $this->view("templates/header", $data);
-        $this->view("Auth/register");
+        $this->view("auth/register");
 
     }
 

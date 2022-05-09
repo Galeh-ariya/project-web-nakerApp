@@ -1,0 +1,17 @@
+naker
+pw all: nakerArchive04
+
+username cpanel : b8_31635342
+
+cpanel: cpanel.byethost8.com
+url : 	http://naker.byethost8.com
+
+ftp
+username : b8_31635342
+host : ftpupload.net
+posrt: 21
+
+D:/SYSTEM_APP/xampp/htdocs/project-naker/db
+
+utf8_unicode_ci
+utf8

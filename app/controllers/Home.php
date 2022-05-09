@@ -10,7 +10,7 @@ class Home extends Controller {
         // var_dump($data['all']); die;
 
         $this->view("templates/header", $data);
-        $this->view("Home/index", $data);
+        $this->view("home/index", $data);
         $this->view("templates/footer");
 
     }
