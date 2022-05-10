@@ -51,10 +51,10 @@ class Auth extends Controller {
         
       if($this->model('User_model')->addUser($_POST) > 0) {
           Flashalert::setFlash('Berhasil melakukan registrasi,', 'Silahkan aktivasi akun anda terlebih dahulu', 'success');
-          header('Location: ' . BASEURL . 'auth');
+          header('Location: ' . BASEURL . 'Auth');
       }  else {
         Flashalert::setFlash('Gagal melakukan', 'registrasi', 'danger');
-        header('Location: ' . BASEURL . 'auth');
+        header('Location: ' . BASEURL . 'Auth');
     
       }
 
@@ -83,7 +83,7 @@ class Auth extends Controller {
                     $this->model('User_token_model')->deleteUser($token);
 
                     Flashalert::setFlash('Akun '. $email . '', 'Telah teraktivasi', 'success');
-                    header('Location: ' . BASEURL . 'auth');
+                    header('Location: ' . BASEURL . 'Auth');
 
                 } else {
 
@@ -91,18 +91,18 @@ class Auth extends Controller {
                     $this->model('User_token_model')->deleteUser($token);
 
                     Flashalert::setFlash('Gagal aktivasi akun.', 'Token kadaluarsa', 'danger');
-                    header('Location: ' . BASEURL . 'auth');
+                    header('Location: ' . BASEURL . 'Auth');
                 }
 
 
             } else {
                 Flashalert::setFlash('Gagal aktivasi akun.', 'Token salah', 'danger');
-                header('Location: ' . BASEURL . 'auth');
+                header('Location: ' . BASEURL . 'Auth');
             }
 
         } else {
             Flashalert::setFlash('Gagal aktivasi akun.', 'Akun salah', 'danger');
-            header('Location: ' . BASEURL . 'auth');
+            header('Location: ' . BASEURL . 'Auth');
         }
 
     }
@@ -112,10 +112,10 @@ class Auth extends Controller {
         // var_dump($_POST); die;
         if($this->model('User_model')->setPass($_POST) > 0) {
             Flashalert::setFlash('Berhasil mengubah', 'password', 'success');
-            header('Location: ' . BASEURL . 'auth/logoutAfterSetPass');
+            header('Location: ' . BASEURL . 'Auth/logoutAfterSetPass');
         } else {
             Flashalert::setFlash('Gagal mengubah', 'password', 'danger');
-            header('Location: ' . BASEURL . 'user/ubahPassword');
+            header('Location: ' . BASEURL . 'User/ubahPassword');
         }
         
 
@@ -127,10 +127,10 @@ class Auth extends Controller {
         // var_dump($_POST); die;
         if($this->model('User_model')->setPass($_POST) > 0) {
             Flashalert::setFlash('Berhasil mengubah', 'password', 'success');
-            header('Location: ' . BASEURL . 'auth/logoutAfterSetPass');
+            header('Location: ' . BASEURL . 'Auth/logoutAfterSetPass');
         } else {
             Flashalert::setFlash('Gagal mengubah', 'password', 'danger');
-            header('Location: ' . BASEURL . 'admin/ubahPassword');
+            header('Location: ' . BASEURL . 'Admin/ubahPassword');
         }
         
 
@@ -140,13 +140,13 @@ class Auth extends Controller {
     public function logoutAfterSetPass() {
         session_destroy();
         session_unset();
-        header('Location: ' . BASEURL . 'auth');
+        header('Location: ' . BASEURL . 'Auth');
     }
 
     public function logOut() {
         session_destroy();
         session_unset();
-        header('Location: ' . BASEURL . 'home');
+        header('Location: ' . BASEURL . 'Home');
     }
 
     public function access() {
@@ -179,17 +179,17 @@ class Auth extends Controller {
                     if($this->model('User_token_model')->insert($email) > 0) {
 
                         Flashalert::setFlash('Cek emailmu', ' untuk melakukan reset password!', 'success');
-                        header('Location: ' . BASEURL . 'auth/forgotpassword');
+                        header('Location: ' . BASEURL . 'Auth/forgotpassword');
 
                     } else {
                         Flashalert::setFlash('Gagal', 'mereset password', 'danger');
-                        header('Location: ' . BASEURL . 'auth/forgotpassword');
+                        header('Location: ' . BASEURL . 'Auth/forgotpassword');
                     }
 
 
                 } else {
                     Flashalert::setFlash('Email', 'belum terdaftar atau belum teraktivasi', 'danger');
-                    header('Location: ' . BASEURL . 'auth/forgotpassword');
+                    header('Location: ' . BASEURL . 'Auth/forgotpassword');
                 }
 
             } else {
@@ -221,7 +221,7 @@ class Auth extends Controller {
             } else {
 
                 Flashalert::setFlash('Gagal reset password.', 'token salah', 'danger');
-                header('Location: ' . BASEURL . 'auth/forgotpassword');
+                header('Location: ' . BASEURL . 'Auth/forgotpassword');
 
             }
 
@@ -229,7 +229,7 @@ class Auth extends Controller {
         } else {
 
             Flashalert::setFlash('Gagal reset password.', 'email salah', 'danger');
-            header('Location: ' . BASEURL . 'auth/forgotpassword');
+            header('Location: ' . BASEURL . 'Auth/forgotpassword');
 
         }
 
@@ -239,7 +239,7 @@ class Auth extends Controller {
     public function changePassword() {
 
         if(!isset($_SESSION['user_data'])) {
-            header('Location: ' . BASEURL . 'auth');
+            header('Location: ' . BASEURL . 'Auth');
         } else {
 
             $data['page'] = "Ubah Password";
@@ -260,12 +260,12 @@ class Auth extends Controller {
         if($this->model('User_model')->changePassword($_POST) > 0) {
 
             Flashalert::setFlash('Password Berhasil', 'diubah', 'success');
-            header('Location: ' . BASEURL . 'auth');
+            header('Location: ' . BASEURL . 'Auth');
 
         } else {
 
             Flashalert::setFlash('Password gagal', 'diubah', 'danger');
-            header('Location: ' . BASEURL . 'auth/changePassword');
+            header('Location: ' . BASEURL . 'Auth/changePassword');
 
         }
 

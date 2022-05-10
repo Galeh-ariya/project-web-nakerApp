@@ -61,10 +61,10 @@ class Admin extends Controller {
         // var_dump($_POST); die;
         if($this->model('Content_model')->insert($_POST) > 0) {
             Flashalert::setFlash('Data berhasil', 'ditambahkan', 'success');
-            header('Location: ' . BASEURL . 'admin');
+            header('Location: ' . BASEURL . 'Admin');
         } else {
             Flashalert::setFlash('Data gagal', 'ditambahkan', 'danger');
-            header('Location: ' . BASEURL . 'admin/insert');
+            header('Location: ' . BASEURL . 'Admin/insert');
         }
 
     }
@@ -74,10 +74,10 @@ class Admin extends Controller {
         // var_dump($_POST); die;
         if($this->model('Content_model')->update($_POST) > 0) {
             Flashalert::setFlash('Data berhasil', 'diubah', 'success');
-            header('Location: ' . BASEURL . 'admin');
+            header('Location: ' . BASEURL . 'Admin');
         } else {
             Flashalert::setFlash('Data gagal', 'diubah', 'danger');
-            header('Location: ' . BASEURL . 'admin/edit/'. $_POST['id']);
+            header('Location: ' . BASEURL . 'Admin/edit/'. $_POST['id']);
         }
 
     }
@@ -87,11 +87,11 @@ class Admin extends Controller {
         // var_dump($id); die;
         if($this->model('Content_model')->delete($id) > 0) {
             Flashalert::setFlash('Data berhasil', 'dihapus', 'success');
-            header('Location: ' . BASEURL . 'admin');
+            header('Location: ' . BASEURL . 'Admin');
 
         } else {
             Flashalert::setFlash('Data gagal', 'dihapus', 'danger');
-            header('Location: ' . BASEURL . 'admin');
+            header('Location: ' . BASEURL . 'Admin');
         }
 
     }
@@ -162,10 +162,10 @@ class Admin extends Controller {
 
         if($this->model('User_model')->delete($id) > 0) {
             Flashalert::setFlash('User berhasil', 'dihapus', 'success');
-            header('Location: ' . BASEURL . 'admin/listUser');
+            header('Location: ' . BASEURL . 'Admin/listUser');
         } else {
             Flashalert::setFlash('User gagal', 'dihapus', 'danger');
-            header('Location: ' . BASEURL . 'admin/listUser');
+            header('Location: ' . BASEURL . 'Admin/listUser');
         }
 
     }

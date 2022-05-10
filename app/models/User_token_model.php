@@ -22,6 +22,7 @@ class User_token_model {
         $data = $this->db->single();
 
         // var_dump($data); die;
+        $this->db->close();
         return $data;
 
     }
@@ -41,6 +42,7 @@ class User_token_model {
         $result = $this->db->single();
         // var_dump($result); die;
         $token = $result['token'];
+        $this->db->close();
 
         return $this->_sendEmail($token, 'forgot');
 
@@ -62,12 +64,12 @@ class User_token_model {
         if($type == 'verify') {
 
             $subject = "Account Verification";
-            $body =  'Click this link to verify your account : <a href="'. BASEURL . 'auth/verify/' . $email . '/' . urlencode($token) .'">Activate</a>';
+            $body =  'Click this link to verify your account : <a href="'. BASEURL . 'Auth/verify/' . $email . '/' . urlencode($token) .'">Activate</a>';
 
         } else if($type == 'forgot') {
 
             $subject = "Reset Password";
-            $body =  'Click this link to reset your password : <a href="'. BASEURL . 'auth/reset/' . $email . '/' . urlencode($token) .'">Reset Password</a>';
+            $body =  'Click this link to reset your password : <a href="'. BASEURL . 'Auth/reset/' . $email . '/' . urlencode($token) .'">Reset Password</a>';
 
         }
 
@@ -121,6 +123,7 @@ class User_token_model {
 
         $this->db->query($sql);
         $this->db->execute();
+        $this->db->close();
 
     }
 

@@ -11,6 +11,7 @@ class Database {
 
     public function __construct() {
         $source = "mysql:host=" . $this->host . ";dbname=" . $this->db_name;
+        
 
         $options = [
             PDO::ATTR_PERSISTENT => true,
@@ -79,6 +80,13 @@ class Database {
 
     public function rowCount() {
         return $this->sql->rowCount();
+    }
+
+    public function close() {
+        $this->sql->close = null;
+        $this->connect = null;
+
+        
     }
 
 

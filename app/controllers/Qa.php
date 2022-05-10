@@ -41,10 +41,10 @@ class Qa extends Controller {
 
         if($this->model('Qa_model')->insert($_POST) > 0) {
             Flashalert::setFlash('Berhasil mengirim', 'pertanyaan', 'success');
-            header('Location: ' . BASEURL . 'qa');
+            header('Location: ' . BASEURL . 'Qa');
         } else {
             Flashalert::setFlash('Gagal mengirim', 'pertanyaan', 'danger');
-            header('Location: ' . BASEURL . 'qa');
+            header('Location: ' . BASEURL . 'Qa');
         }
 
     }
@@ -72,10 +72,10 @@ class Qa extends Controller {
 
         if($this->model('Qa_model')->insertAsw($_POST) > 0) {
             Flashalert::setFlash('Berhasil mengirim', 'jawaban', 'success');
-            header('Location: ' . BASEURL . 'qa/admin');
+            header('Location: ' . BASEURL . 'Qa/admin');
         } else {
             Flashalert::setFlash('Gagal mengirim', 'jawaban', 'danger');
-            header('Location: ' . BASEURL . 'qa/admin');
+            header('Location: ' . BASEURL . 'Qa/admin');
         }
 
     }

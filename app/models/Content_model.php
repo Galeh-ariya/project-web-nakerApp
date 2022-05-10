@@ -12,7 +12,9 @@ class Content_model {
     public function getAll() {
 
         $this->db->query("SELECT * FROM contents ORDER BY id DESC");
-        return $this->db->resultSet();
+        $data = $this->db->resultSet();
+        $this->db->close();
+        return $data;
  
      }
 
@@ -27,6 +29,7 @@ class Content_model {
 
         $this->db->query($sql);
         $this->db->execute();
+        $this->db->close();
 
         return $this->db->rowCount();
 
@@ -52,6 +55,7 @@ class Content_model {
       
       $this->db->query($sql);
       $this->db->execute();
+      $this->db->close();
 
       return $this->db->rowCount();
       
@@ -65,6 +69,7 @@ class Content_model {
         $this->db->query($sql);
 
         $this->db->execute();
+        $this->db->close();
 
         return $this->db->rowCount();
 
@@ -81,7 +86,9 @@ class Content_model {
       $sql = "SELECT * FROM contents WHERE peraturan LIKE '%$keyword%' OR tentang LIKE '%$keyword%' OR time_create LIKE '%$keyword%'";
 
       $this->db->query($sql);
-      return $this->db->resultSet();
+      $result = $this->db->resultSet();
+      $this->db->close();
+      return $result;
       // var_dump($this->db->resultSet()); die;
       
 
@@ -95,6 +102,7 @@ class Content_model {
       $this->db->query($sql);
 
       $data = $this->db->resultSet();
+      $this->db->close();
       
       return $data;
 

@@ -53,10 +53,10 @@ class Profile extends Controller {
 
         if($this->model('User_model')->setProfile($fileUser) > 0) {
             Flashalert::setFlash('Berhasil melakukan', 'ubah data', 'success');
-            header('Location: ' . BASEURL . 'profile');
+            header('Location: ' . BASEURL . 'Profile');
         } else {
             Flashalert::setFlash('Gagal melakukan', 'ubah data', 'success');
-            header('Location: ' . BASEURL . 'profile');
+            header('Location: ' . BASEURL . 'Profile');
         }
 
     }
@@ -81,10 +81,10 @@ class Profile extends Controller {
 
         if($this->model('User_model')->setProfile($fileUser) > 0) {
             Flashalert::setFlash('Berhasil melakukan', 'ubah data', 'success');
-            header('Location: ' . BASEURL . 'profile/admin');
+            header('Location: ' . BASEURL . 'Profile/admin');
         } else {
             Flashalert::setFlash('Gagal melakukan', 'ubah data', 'success');
-            header('Location: ' . BASEURL . 'profile/admin');
+            header('Location: ' . BASEURL . 'Profile/admin');
         }
 
     }

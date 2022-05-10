@@ -63,6 +63,8 @@ class User_model {
             // var_dump($result); die;
             $token = $result['token'];
 
+            $this->db->close();
+
             $this->_sendEmail($token, 'verify');
 
             return 1;
@@ -84,7 +86,7 @@ class User_model {
         if($type == 'verify') {
 
             $subject = "Account Verification";
-            $body =  'Click this link to verify your account : <a href="'. BASEURL . 'auth/verify/' . $email . '/' . urlencode($token) .'">Activate</a>';
+            $body =  'Click this link to verify your account : <a href="'. BASEURL . 'Auth/verify/' . $email . '/' . urlencode($token) .'">Activate</a>';
 
         }
 
@@ -139,6 +141,7 @@ class User_model {
         $user = $this->db->single();
 
         // var_dump($user); die;
+        $this->db->close();
         return $user;
 
     }
@@ -150,6 +153,7 @@ class User_model {
         $user = $this->db->single();
 
         // var_dump($user); die;
+        $this->db->close();
         return $user;
 
     }
@@ -163,6 +167,7 @@ class User_model {
 
          $this->db->query($sql);
          $user = $this->db->resultSet()[0];
+         $this->db->close();
 
         //  var_dump($user); die;
         //  die;
@@ -185,26 +190,26 @@ class User_model {
                     $_SESSION['data'] = $file;
 
                     if($user['role_id'] == 1) {
-                        header('Location: ' . BASEURL . 'admin');
+                        header('Location: ' . BASEURL . 'Admin');
                     } else {
-                        header('Location: ' . BASEURL . 'user');
+                        header('Location: ' . BASEURL . 'User');
                     }
 
                     
 
                 } else {
                     Flashalert::setFlash("Password anda", "salah", "danger");
-                    header('Location: ' . BASEURL . 'auth');
+                    header('Location: ' . BASEURL . 'Auth');
                 }
 
             } else {
                 Flashalert::setFlash("Email belum", "teraktivasi", "danger");
-                header('Location: ' . BASEURL . 'auth');
+                header('Location: ' . BASEURL . 'Auth');
             }
 
          } else {
             Flashalert::setFlash("Email belum", "terdaftar", "danger");
-            header('Location: ' . BASEURL . 'auth');
+            header('Location: ' . BASEURL . 'Auth');
          }
 
 
@@ -220,6 +225,7 @@ class User_model {
 
         $this->db->query($sql);
         $user = $this->db->resultSet();
+        $this->db->close();
 
         return $user;
 
@@ -240,6 +246,8 @@ class User_model {
          $this->db->query($sql);
 
          $this->db->execute();
+
+         $this->db->close();
 
          return $this->db->rowCount();
 
@@ -263,6 +271,8 @@ class User_model {
                 $this->db->query($sql);
                 $this->db->execute();
 
+                $this->db->close();
+
                 return $this->db->rowCount();
 
             } else {
@@ -285,6 +295,7 @@ class User_model {
         $this->db->query($sql);
         // var_dump($this->db->single()); die;
         $pass = $this->db->single();
+        $this->db->close();
         // var_dump($pass); die;
 
         if(password_verify($pwl, $pass['password'])) {
@@ -311,6 +322,7 @@ class User_model {
             $sql = "UPDATE users SET password = '$password' WHERE email = '$email'";
             $this->db->query($sql);
             $this->db->execute();
+            $this->db->close();
 
             unset($_SESSION['user_data']);
 
@@ -328,6 +340,7 @@ class User_model {
 
         $this->db->query($sql);
         $this->db->execute();
+        $this->db->close();
 
     }
 
@@ -337,6 +350,7 @@ class User_model {
 
         $this->db->query($sql);
         $this->db->execute();
+        $this->db->close();
 
     }
 
@@ -347,6 +361,7 @@ class User_model {
         $this->db->query($sql);
         $data = $this->db->resultSet();
         // var_dump($data); die;
+        $this->db->close();
         return $data;
 
     }
@@ -358,7 +373,9 @@ class User_model {
         $sql = "SELECT * FROM users WHERE name LIKE '%$key%' OR email LIKE '%$key%' OR gender LIKE '%$key%' ORDER BY id DESC" ;
 
         $this->db->query($sql);
-        return $this->db->resultSet();
+        $result = $this->db->resultSet();
+        $this->db->close();
+        return $result;
 
     }
 
@@ -367,7 +384,9 @@ class User_model {
         $sql = "SELECT count(name) AS total FROM users WHERE role_id = 2";
         $this->db->query($sql);
         // var_dump($this->db->single()); die;
-        return $this->db->single();
+        $result = $this->db->single();
+        $this->db->close();
+        return $result;
 
     }
 
@@ -377,6 +396,7 @@ class User_model {
 
         $this->db->query($sql);
         $this->db->execute();
+        $this->db->close();
 
         return $this->db->rowCount();
 
@@ -387,7 +407,9 @@ class User_model {
         $sql = "SELECT * FROM qa WHERE user_id = $id AND answer IS NOT NULL";
 
         $this->db->query($sql);
-        return $this->db->resultSet();
+        $result = $this->db->resultSet();
+        $this->db->close();
+        return $result;
         // var_dump($this->db->resultSet()); die;
 
     }
